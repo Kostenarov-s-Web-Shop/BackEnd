@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Data
 @Audited
-public class Client {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +24,7 @@ public class Client {
     @Column(name = "lastName", nullable = false)
     private String lastName;
     private String address;
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Listing> listings;
     private short rating = 1;
     private boolean superAdmin = false;
